@@ -1,125 +1,16 @@
-const app = document.querySelector("#app");
-const books = window.BOOKS || [];
-
-function esc(value="") {
-  return String(value).replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[ch]));
-}
-
-function route() {
-  const hash = location.hash.slice(1);
-  const [type, bookId, chapterId] = hash.split("/");
-  if (type === "book") return renderBook(bookId);
-  if (type === "chapter") return renderChapter(bookId, chapterId);
-  renderLibrary();
-  window.scrollTo(0, 0);
-}
-
-function header(backHref) {
-  return `<header class="topbar">
-    ${backHref ? `<a class="icon-btn" href="${backHref}" aria-label="Назад">←</a>` : `<div class="brand-mark">B</div>`}
-    <div class="brand">BookNotes</div>
-    <div class="top-decoration" aria-hidden="true">⌁</div>
-  </header>`;
-}
-
-function renderLibrary() {
-  app.innerHTML = `
-    <div class="shell">
-      ${header()}
-      <section class="hero">
-        <p class="eyebrow">ЛИЧНАЯ БИБЛИОТЕКА</p>
-        <h1>Книги, которые<br><em>остаются с тобой.</em></h1>
-        <p class="lead">Короткие конспекты, важные идеи и мысли из каждой прочитанной главы.</p>
-        <div class="book-line" aria-hidden="true"><span></span><i></i><span></span></div>
-      </section>
-      <section class="section">
-        <div class="section-head">
-          <h2>Мои книги</h2>
-          <span class="count">${books.length}</span>
-        </div>
-        <div class="books-grid">
-          ${books.map(bookCard).join("")}
-        </div>
-      </section>
-      <footer>BookNotes <span>•</span> моя библиотека знаний</footer>
-    </div>`;
-}
-
-function bookCard(book) {
-  const total = book.chapters?.length || 0;
-  return `<a class="book-card" href="#book/${book.id}">
-    <div class="cover" style="--accent:${book.accent || "#ded6ca"}">
-      <div class="cover-rule"></div>
-      <div class="cover-symbol">${esc(book.symbol || "B")}</div>
-      <div class="cover-lines"><span></span><span></span><span></span></div>
-    </div>
-    <div class="book-meta">
-      <p>${esc(book.category || "Книга")}</p>
-      <h3>${esc(book.title)}</h3>
-      <span>${esc(book.author)}</span>
-      <div class="chapters-count">${total} ${chapterWord(total)}</div>
-    </div>
-  </a>`;
-}
-
-function chapterWord(n) {
-  const m10=n%10,m100=n%100;
-  if(m10===1 && m100!==11) return "глава";
-  if([2,3,4].includes(m10) && ![12,13,14].includes(m100)) return "главы";
-  return "глав";
-}
-
-function renderBook(id) {
-  const book = books.find(b => b.id === id);
-  if (!book) return renderLibrary();
-  app.innerHTML = `<div class="shell">
-    ${header("#")}
-    <section class="book-hero">
-      <div class="mini-cover" style="--accent:${book.accent || "#ded6ca"}"><span>${esc(book.symbol || "B")}</span></div>
-      <div>
-        <p class="eyebrow">${esc(book.category || "КНИГА")}</p>
-        <h1>${esc(book.title)}</h1>
-        <p class="author">${esc(book.author)}</p>
-      </div>
-    </section>
-    <section class="section chapters-section">
-      <div class="section-head"><h2>Главы</h2><span class="count">${book.chapters.length}</span></div>
-      <div class="chapter-list">
-        ${book.chapters.map(ch => `<a class="chapter-row" href="#chapter/${book.id}/${ch.id}">
-          <span class="chapter-number">${String(ch.number).padStart(2,"0")}</span>
-          <div><h3>${esc(ch.title)}</h3><p>${esc(ch.summary)}</p></div>
-          <span class="arrow">→</span>
-        </a>`).join("")}
-      </div>
-    </section>
-  </div>`;
-  window.scrollTo(0,0);
-}
-
-function renderChapter(bookId, chapterId) {
-  const book = books.find(b => b.id === bookId);
-  const ch = book?.chapters.find(c => c.id === chapterId);
-  if (!book || !ch) return renderLibrary();
-  app.innerHTML = `<div class="shell reading-shell">
-    ${header("#book/"+book.id)}
-    <article class="note">
-      <div class="note-head">
-        <p class="eyebrow">${esc(book.title)} · ГЛАВА ${ch.number}</p>
-        <h1>${esc(ch.title)}</h1>
-        <p class="read-time">☕ ${esc(ch.readTime || "несколько минут")}</p>
-      </div>
-      <section class="note-block intro"><span class="ornament">✦</span><p>${esc(ch.summary)}</p></section>
-      <section class="note-block">
-        <p class="block-label">ГЛАВНЫЕ ИДЕИ</p>
-        <div class="ideas">${ch.ideas.map((idea,i)=>`<div class="idea"><b>${String(i+1).padStart(2,"0")}</b><p>${esc(idea)}</p></div>`).join("")}</div>
-      </section>
-      <section class="quote-card"><span>ЗАПОМНИТЬ</span><p>${esc(ch.takeaway)}</p></section>
-      <section class="apply-card"><div class="apply-icon">↗</div><div><span>ПРИМЕНИТЬ</span><p>${esc(ch.apply)}</p></div></section>
-    </article>
-  </div>`;
-  window.scrollTo(0,0);
-}
-
-window.addEventListener("hashchange", route);
-if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js").catch(()=>{});
-route();
+const app=document.querySelector("#app"),nav=document.querySelector("#bottomNav"),toastEl=document.querySelector("#toast"),books=window.BOOKS||[];
+const KEY="booknotes-state-v2";let state=JSON.parse(localStorage.getItem(KEY)||'{"favorites":[],"completed":[],"notes":{},"filter":"all"}');
+const save=()=>localStorage.setItem(KEY,JSON.stringify(state));const esc=(v="")=>String(v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[c]));
+const key=(b,c)=>b+"/"+c;function toast(t){toastEl.textContent=t;toastEl.classList.add("show");setTimeout(()=>toastEl.classList.remove("show"),1800)}
+function header(back){return '<header class="topbar">'+(back?'<a class="icon-btn" href="'+back+'">←</a>':'<div class="brand-mark">B</div>')+'<div class="brand">BookNotes</div><div class="top-decoration">⌁</div></header>'}
+function bottom(active="library"){nav.innerHTML='<a class="'+(active==="library"?"active":"")+'" href="#"><span>⌂</span>Библиотека</a><a class="'+(active==="saved"?"active":"")+'" href="#saved"><span>♡</span>Избранное</a>';nav.style.display="flex"}
+function chapterWord(n){let a=n%10,b=n%100;return a===1&&b!==11?"глава":[2,3,4].includes(a)&&![12,13,14].includes(b)?"главы":"глав"}
+function progress(book){if(!book.chapters.length)return 0;return Math.round(book.chapters.filter(c=>state.completed.includes(key(book.id,c.id))).length/book.chapters.length*100)}
+function cover(book,cls="cover"){return '<div class="'+cls+'" style="--accent:'+(book.accent||"#ded6ca")+'"><div class="cover-rule"></div><div class="cover-symbol">'+esc(book.symbol||"B")+'</div><div class="cover-lines"><span></span><span></span><span></span></div></div>'}
+function bookCard(book){let p=progress(book);return '<a class="book-card" href="#book/'+book.id+'">'+cover(book)+'<div class="book-meta"><p>'+esc(book.category||"Книга")+'</p><h3>'+esc(book.title)+'</h3><span>'+esc(book.author)+'</span><div class="progress"><i style="width:'+p+'%"></i></div><div class="book-foot"><span>'+book.chapters.length+" "+chapterWord(book.chapters.length)+'</span><b>'+p+'%</b></div></div></a>'}
+function renderLibrary(){bottom("library");app.innerHTML='<div class="shell">'+header()+'<section class="hero"><p class="eyebrow">ЛИЧНАЯ БИБЛИОТЕКА</p><h1>Книги, которые<br><em>остаются с тобой.</em></h1><p class="lead">Короткие конспекты, важные идеи и мысли из каждой прочитанной главы.</p><div class="book-line"><span></span><i></i><span></span></div></section><section class="section"><div class="library-tools"><div class="section-head"><h2>Мои книги</h2><span class="count">'+books.length+'</span></div><label class="search"><span>⌕</span><input id="search" placeholder="Найти книгу или автора"></label></div><div id="bookGrid" class="books-grid">'+books.map(bookCard).join("")+'</div></section><footer>BookNotes <span>•</span> моя библиотека знаний</footer></div>';document.querySelector("#search").addEventListener("input",e=>{let q=e.target.value.toLowerCase().trim(),x=books.filter(b=>(b.title+" "+b.author).toLowerCase().includes(q));document.querySelector("#bookGrid").innerHTML=x.length?x.map(bookCard).join(""):'<div class="empty">Ничего не найдено.<small>Попробуй другой запрос.</small></div>'})}
+function renderBook(id){let b=books.find(x=>x.id===id);if(!b)return renderLibrary();bottom("library");let p=progress(b);app.innerHTML='<div class="shell">'+header("#")+'<section class="book-hero">'+cover(b,"mini-cover")+'<div class="book-title"><p class="eyebrow">'+esc(b.category||"КНИГА")+'</p><h1>'+esc(b.title)+'</h1><p class="author">'+esc(b.author)+'</p><div class="hero-progress"><span><i style="width:'+p+'%"></i></span><b>'+p+'% прочитано</b></div></div></section><section class="section chapters-section"><div class="section-head"><h2>Главы</h2><span class="count">'+b.chapters.length+'</span></div><div class="chapter-list">'+b.chapters.map(c=>{let done=state.completed.includes(key(b.id,c.id)),fav=state.favorites.includes(key(b.id,c.id));return '<a class="chapter-row '+(done?"done":"")+'" href="#chapter/'+b.id+'/'+c.id+'"><span class="chapter-number">'+String(c.number).padStart(2,"0")+'</span><div><div class="chapter-title-line"><h3>'+esc(c.title)+'</h3>'+(fav?'<span class="tiny-heart">♥</span>':'')+'</div><p>'+esc(c.summary)+'</p></div><span class="status">'+(done?"✓":"→")+'</span></a>'}).join("")+'</div></section></div>';scrollTo(0,0)}
+function renderChapter(bid,cid){let b=books.find(x=>x.id===bid),c=b?.chapters.find(x=>x.id===cid);if(!b||!c)return renderLibrary();nav.style.display="none";let k=key(bid,cid),fav=state.favorites.includes(k),done=state.completed.includes(k),note=state.notes[k]||"";app.innerHTML='<div class="shell reading-shell">'+header("#book/"+b.id)+'<article class="note"><div class="note-head"><p class="eyebrow">'+esc(b.title)+' · ГЛАВА '+c.number+'</p><h1>'+esc(c.title)+'</h1><p class="read-time">☕ '+esc(c.readTime||"несколько минут")+'</p><div class="chapter-actions"><button id="fav">'+(fav?"♥ В избранном":"♡ В избранное")+'</button><button id="done">'+(done?"✓ Прочитано":"○ Отметить прочитанной")+'</button></div></div><section class="note-block intro"><span class="ornament">✦</span><p>'+esc(c.summary)+'</p></section><section class="note-block"><p class="block-label">ГЛАВНЫЕ ИДЕИ</p><div class="ideas">'+c.ideas.map((x,i)=>'<div class="idea"><b>'+String(i+1).padStart(2,"0")+'</b><p>'+esc(x)+'</p></div>').join("")+'</div></section><section class="quote-card"><span>ЗАПОМНИТЬ</span><p>'+esc(c.takeaway)+'</p></section><section class="apply-card"><div class="apply-icon">↗</div><div><span>ПРИМЕНИТЬ</span><p>'+esc(c.apply)+'</p></div></section><section class="personal-note"><div><span>МОЯ ЗАМЕТКА</span><small>Сохраняется только на этом устройстве</small></div><textarea id="personalNote" placeholder="Запиши свою мысль по этой главе…">'+esc(note)+'</textarea><button id="saveNote">Сохранить заметку</button></section></article></div>';document.querySelector("#fav").onclick=()=>{state.favorites=state.favorites.includes(k)?state.favorites.filter(x=>x!==k):[...state.favorites,k];save();renderChapter(bid,cid);toast(state.favorites.includes(k)?"Добавлено в избранное":"Удалено из избранного")};document.querySelector("#done").onclick=()=>{state.completed=state.completed.includes(k)?state.completed.filter(x=>x!==k):[...state.completed,k];save();renderChapter(bid,cid);toast(state.completed.includes(k)?"Глава прочитана ✓":"Отметка снята")};document.querySelector("#saveNote").onclick=()=>{state.notes[k]=document.querySelector("#personalNote").value;save();toast("Заметка сохранена")};scrollTo(0,0)}
+function renderSaved(){bottom("saved");let items=[];books.forEach(b=>b.chapters.forEach(c=>{if(state.favorites.includes(key(b.id,c.id)))items.push({b,c})}));app.innerHTML='<div class="shell">'+header("#")+'<section class="saved-head"><p class="eyebrow">СОХРАНЁННОЕ</p><h1>Избранные главы</h1><p>Самые важные мысли всегда под рукой.</p></section><section class="section"><div class="chapter-list">'+(items.length?items.map(({b,c})=>'<a class="chapter-row" href="#chapter/'+b.id+'/'+c.id+'"><span class="chapter-number">♥</span><div><h3>'+esc(c.title)+'</h3><p>'+esc(b.title)+' · '+esc(c.summary)+'</p></div><span class="status">→</span></a>').join(""):'<div class="empty big">Пока пусто.<small>Нажми «♡ В избранное» внутри нужной главы.</small></div>')+'</div></section></div>'}
+function route(){let h=location.hash.slice(1),p=h.split("/");if(p[0]==="book")renderBook(p[1]);else if(p[0]==="chapter")renderChapter(p[1],p[2]);else if(p[0]==="saved")renderSaved();else renderLibrary()}
+addEventListener("hashchange",route);if("serviceWorker"in navigator)navigator.serviceWorker.register("./sw.js").catch(()=>{});route();
