@@ -204,3 +204,25 @@ body{background:#f7f7f3!important;color:var(--ink)!important}
 .bottom-nav{border-radius:10px!important;background:#fff!important;border:1px solid #d9dbd6!important;box-shadow:0 5px 16px #2221!important}.bottom-nav a{border-radius:6px!important}.bottom-nav a.active{background:#e8ede9!important;color:#355a43!important}
 .toast{background:#292e2a!important;border-radius:6px!important}
 @media(max-width:720px){.hero h1{font-size:44px!important}.dashboard .stat{padding:14px 12px!important}.book-card{border-radius:8px!important}.cover{border-radius:5px!important}.book-hero{border-radius:8px!important}.chapter-list{border-radius:7px!important}.note-block,.quote-card,.apply-card,.personal-note{border-radius:7px!important}}
+
+/* v13 — perfectly center continue arrow */
+.continue-card>b{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:39px!important;
+  height:39px!important;
+  min-width:39px!important;
+  padding:0!important;
+  margin:0!important;
+  line-height:1!important;
+  text-align:center!important;
+  font-size:0!important;
+}
+.continue-card>b::before{
+  content:"→";
+  display:block;
+  font-size:19px;
+  line-height:1;
+  transform:translateY(-1px);
+}
