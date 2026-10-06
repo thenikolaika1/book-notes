@@ -59,3 +59,20 @@ radial-gradient(circle at 90% 88%,#fff0d6 0,transparent 20%),var(--bg);backgroun
 .toast.show{animation:toastPop .3s cubic-bezier(.2,1.5,.4,1)}@keyframes toastPop{from{transform:translate(-50%,12px) scale(.85)}to{transform:translate(-50%,0) scale(1)}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 @media(max-width:720px){body{background:radial-gradient(circle at 10% 5%,#efe4ff 0,transparent 25%),radial-gradient(circle at 95% 22%,#ddf2ff 0,transparent 24%),radial-gradient(circle at 15% 78%,#e3f7ea 0,transparent 22%),var(--bg)}.hero:before{width:220px;height:220px;left:-160px}.book-card{box-shadow:0 9px 25px #392e4c10}.book-card:active{transform:scale(.97)}}
+
+/* Refined premium balance — calm color, purposeful motion */
+body{background:linear-gradient(180deg,#fbfaf8 0%,#f8f7f4 100%)!important;background-attachment:scroll!important}
+.paper-grain{opacity:.22!important;background-size:24px 24px!important}
+.hero:before{display:none!important}.hero:after{width:190px!important;height:190px!important;right:4%!important;top:70px!important;background:linear-gradient(135deg,#f1e9ff,#e6f3ff)!important;filter:blur(1px)!important;opacity:.52!important;animation:none!important}
+.hero h1 em{background:linear-gradient(90deg,#806a9b,#a77882,#688a80)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;animation:none!important}
+.book-line{animation:none!important}
+.dashboard .stat{background:#fff!important}.dashboard .stat:nth-child(1){border-top:3px solid #a9ceb7}.dashboard .stat:nth-child(2){border-top:3px solid #c5b1dd}.dashboard .stat:nth-child(3){border-top:3px solid #e3c77e}.dashboard .stat:hover{transform:translateY(-3px)!important;box-shadow:0 12px 28px #392e4c10!important}
+.continue-card{background:linear-gradient(120deg,#5f556c,#6f7183)!important;background-size:auto!important;animation:none!important;box-shadow:0 12px 30px #39314018!important}.continue-card:hover{transform:translateY(-3px)!important;box-shadow:0 16px 34px #39314022!important}
+.book-card{background:#fff!important;box-shadow:0 7px 22px #30264208!important}.book-card:hover{transform:translateY(-4px)!important;box-shadow:0 15px 34px #392e4c12!important;border-color:#ded8e3!important}.book-card:after{opacity:.18!important}.cover:before,.mini-cover:before{display:none!important}.book-card:hover .cover{transform:rotate(-1.5deg) scale(1.025)!important}
+.chapter-row:hover{background:#f7f4fa!important;transform:translateX(3px)!important;box-shadow:none!important}
+.note-head h1{background:none!important;color:var(--ink)!important}.note-head:before{animation:none!important;letter-spacing:8px!important;color:#b4a4c2!important}
+.intro{background:#f7f3fb!important;animation:none!important;border-color:#e9e1ef!important}.quote-card{background:#fff6dc!important;animation:none!important;border-color:#eee0b5!important}.apply-card{background:#edf7f1!important;animation:none!important;border-color:#dbeadf!important}.personal-note{background:#f4f1f8!important;animation:none!important;border-color:#e6dfeb!important}
+.idea:hover{transform:translateX(3px)!important}.idea:hover b{transform:scale(1.05)!important}
+.bottom-nav{background:#ffffffed!important}.bottom-nav a.active{background:#f0ebf6!important;box-shadow:none!important}.bottom-nav a.active span{animation:none!important}
+.page-in{animation:pageEnter .32s ease-out!important}@keyframes pageEnter{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+@media(max-width:720px){body{background:#faf9f7!important}.hero:after{width:115px!important;height:115px!important;right:-18px!important;top:48px!important}.book-card{box-shadow:0 6px 18px #392e4c09!important}}
