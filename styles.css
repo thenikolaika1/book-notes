@@ -76,3 +76,35 @@ body{background:linear-gradient(180deg,#fbfaf8 0%,#f8f7f4 100%)!important;backgr
 .bottom-nav{background:#ffffffed!important}.bottom-nav a.active{background:#f0ebf6!important;box-shadow:none!important}.bottom-nav a.active span{animation:none!important}
 .page-in{animation:pageEnter .32s ease-out!important}@keyframes pageEnter{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
 @media(max-width:720px){body{background:#faf9f7!important}.hero:after{width:115px!important;height:115px!important;right:-18px!important;top:48px!important}.book-card{box-shadow:0 6px 18px #392e4c09!important}}
+
+/* Monochrome + green final direction */
+:root{--green:#477a5b;--green-dark:#315c43;--green-soft:#edf5ef;--green-line:#d6e6da}
+body{background:#fafaf8!important}
+.paper-grain{opacity:.14!important;background-image:radial-gradient(#1d241f12 .7px,transparent .7px)!important}
+.hero:after,.hero:before{display:none!important}
+.hero h1 em,.note-head h1{background:none!important;-webkit-background-clip:initial!important;background-clip:initial!important;color:var(--ink)!important;animation:none!important}
+.eyebrow{color:var(--green)!important}
+.brand-mark{background:var(--green-soft)!important;border-color:var(--green-line)!important;color:var(--green-dark)!important;box-shadow:none!important}
+.book-line span,.book-line i{background:var(--green-soft)!important;border-color:var(--green-line)!important}
+.dashboard .stat{background:#fff!important;border-top:1px solid var(--line)!important}.dashboard .stat:first-child{border-top:3px solid var(--green)!important}.dashboard .stat b{color:var(--ink)!important}
+.continue-card{background:#303632!important;color:#fff!important}.continue-card .eyebrow{color:#b9d1c1!important}.continue-card:after{color:#ffffff0b!important}
+.book-card{background:#fff!important}.book-card:after{background:var(--green-soft)!important}
+.cover,.mini-cover{--accent:#dce8df!important;background:#dce8df!important}.cover-symbol{background:#f8fbf9!important;color:var(--green-dark)!important}.cover:after,.mini-cover:after{color:var(--green)!important}
+.progress i,.hero-progress i{background:var(--green)!important}
+.search:focus-within{border-color:#9fc1aa!important;box-shadow:0 0 0 3px #edf5ef!important}
+.count{background:var(--green-soft)!important;color:var(--green-dark)!important}
+.chapter-row:hover{background:#f1f6f2!important}.chapter-number,.chapter-row:hover .chapter-number{color:var(--green)!important}.tiny-heart{color:var(--green)!important}
+.note-head:before{color:#8fb29a!important}
+.intro,.quote-card,.apply-card,.personal-note{background:#fff!important;border-color:var(--line)!important;animation:none!important}
+.intro{border-left:3px solid var(--green)!important}.intro .ornament{background:var(--green-soft)!important;color:var(--green)!important}
+.idea b{background:var(--green-soft)!important;color:var(--green-dark)!important}
+.idea:nth-child(2n) b,.idea:nth-child(3n) b{background:var(--green-soft)!important;color:var(--green-dark)!important}
+.quote-card{border-left:3px solid var(--green)!important}.quote-card span,.apply-card span,.personal-note span{color:var(--green)!important}.quote-card:after{color:#477a5b12!important}
+.apply-card{background:#f7faf8!important}.apply-icon{background:var(--green-soft)!important;color:var(--green-dark)!important}
+.personal-note{background:#fafafa!important}.personal-note textarea{background:#fff!important;border-color:#dde4df!important}.personal-note button{background:var(--green)!important;color:#fff!important}.personal-note button:hover{background:var(--green-dark)!important}
+.chapter-actions button{border-color:#d9e2dc!important}.chapter-actions button:hover{background:var(--green-soft)!important;color:var(--green-dark)!important}
+.chapter-nav a,.chapter-nav a.next,.chapter-nav a.finish{background:#fff!important}.chapter-nav a:hover{border-color:#b7cdbd!important;background:#f6faf7!important}
+.bottom-nav{background:#fffffff2!important}.bottom-nav a.active{background:var(--green-soft)!important;color:var(--green-dark)!important}
+.saved-head:after{color:#477a5b0d!important}
+.toast{background:#303632!important}
+@media(max-width:720px){body{background:#fafaf8!important}}
