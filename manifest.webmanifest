@@ -1,10 +1,1 @@
-{
-  "name": "BookNotes",
-  "short_name": "BookNotes",
-  "description": "Личная библиотека конспектов книг",
-  "start_url": "./",
-  "display": "standalone",
-  "background_color": "#faf9f6",
-  "theme_color": "#faf9f6",
-  "lang": "ru"
-}
+{"name":"BookNotes","short_name":"BookNotes","description":"Личная библиотека конспектов книг","start_url":"./","scope":"./","display":"standalone","background_color":"#faf9f6","theme_color":"#faf9f6","lang":"ru","icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}
