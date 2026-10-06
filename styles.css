@@ -129,3 +129,32 @@ body{background:#fcfbf8!important;color:#292b29!important}
 .chapter-actions button:hover{background:#edf6f0!important}
 .toast{background:#435148!important}
 @media(max-width:720px){.hero:after{width:90px!important;height:90px!important;right:-8px!important;top:58px!important}}
+
+/* Crisp colorful v10 — brighter, not louder */
+:root{--green:#3f8558;--green-dark:#28643f}
+body{background:#fbfbf9!important}
+.paper-grain{display:none!important}
+.hero:after{background:linear-gradient(135deg,#bfe7ca,#c9e3fa,#e0cef4)!important;opacity:.48!important;border:1px solid #ffffff!important}
+.dashboard .stat{box-shadow:0 5px 16px #24352a0b!important}
+.dashboard .stat:nth-child(1){background:#dff3e5!important;border:1px solid #bfe0c8!important}
+.dashboard .stat:nth-child(2){background:#e3effc!important;border:1px solid #c4daf1!important}
+.dashboard .stat:nth-child(3){background:#ffead7!important;border:1px solid #efd0b4!important}
+.continue-card{background:#e1f2e6!important;border:1px solid #b9d9c2!important;color:#263b2d!important;box-shadow:0 7px 18px #36584112!important}
+.continue-card:hover{background:#d8eddf!important;box-shadow:0 11px 24px #36584118!important}
+.book-card{border:1px solid #e4e3df!important;box-shadow:0 5px 15px #27302a0a!important}
+.book-card:nth-child(6n+1){background:#fff2e5!important;border-color:#f0d7be!important}.book-card:nth-child(6n+2){background:#eaf3ff!important;border-color:#cbdff5!important}.book-card:nth-child(6n+3){background:#e7f5eb!important;border-color:#c7e3cf!important}.book-card:nth-child(6n+4){background:#ffecef!important;border-color:#f0ccd2!important}.book-card:nth-child(6n+5){background:#f1e9fb!important;border-color:#dac9eb!important}.book-card:nth-child(6n){background:#fff5d9!important;border-color:#ecdda9!important}
+.cover,.mini-cover{background:#cce7d4!important;border:1px solid #a9d0b4!important;box-shadow:0 7px 16px #315d3e12!important}
+.book-card:nth-child(6n+2) .cover{background:#cddff3!important;border-color:#aecae7!important}.book-card:nth-child(6n+3) .cover{background:#cce7d4!important;border-color:#acd2b7!important}.book-card:nth-child(6n+4) .cover{background:#efd1d6!important;border-color:#dfb5bd!important}.book-card:nth-child(6n+5) .cover{background:#dfd0ef!important;border-color:#c9b3df!important}.book-card:nth-child(6n) .cover{background:#eee0ae!important;border-color:#dac987!important}
+.progress{background:#e5e7e4!important}.progress i,.hero-progress i{background:#3f8558!important}
+.search{background:#fff!important;border:1px solid #deded9!important;box-shadow:0 3px 10px #29342d08!important}
+.search:focus-within{border-color:#78ae88!important;box-shadow:0 0 0 3px #dcefe2!important}
+.chapter-row{border-bottom-color:#e3e4e1!important}.chapter-row:hover{background:#eaf5ed!important}
+.intro{background:#eaf4fd!important;border:1px solid #cbdff0!important;border-left:4px solid #6fa5d1!important}
+.quote-card{background:#fff0c9!important;border:1px solid #ead28d!important;border-left:4px solid #d4a83c!important}
+.apply-card{background:#e5f4e9!important;border:1px solid #c2dfca!important}
+.personal-note{background:#f1e9f8!important;border:1px solid #dac9e8!important}
+.idea:nth-child(3n+1) b{background:#cfe9d6!important}.idea:nth-child(3n+2) b{background:#d3e6f7!important}.idea:nth-child(3n) b{background:#e3d5f0!important}
+.bottom-nav{border:1px solid #e1e2df!important;box-shadow:0 8px 25px #28322c12!important}.bottom-nav a.active{background:#dcefe2!important}
+.chapter-actions button,.chapter-nav a{border-color:#d9dcd8!important;background:#fff!important}
+.chapter-actions button:hover,.chapter-nav a:hover{border-color:#a9cdb3!important;background:#eaf5ed!important}
+@media(max-width:720px){.dashboard .stat{box-shadow:none!important}.book-card{box-shadow:0 4px 12px #27302a09!important}}
