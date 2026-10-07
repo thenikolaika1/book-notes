@@ -342,3 +342,7 @@ footer{padding-top:36px!important;padding-bottom:96px!important;color:#8a8d87!im
 .profile-avatar .avatar-body{position:absolute!important;display:block!important;width:23px!important;height:15px!important;left:50%!important;bottom:3px!important;transform:translateX(-50%)!important;border-radius:12px 12px 7px 7px!important;background:#fff!important;border:0!important;z-index:2!important}
 .profile-avatar i{position:absolute;width:6px;height:6px;border-radius:50%;right:1px;bottom:1px;background:#df955b;border:1.5px solid #fff;z-index:3}
 .profile-avatar:hover{transform:translateY(-1px) scale(1.03);box-shadow:0 0 0 1px #bfc7c0,0 6px 14px #26322924!important}
+
+/* v25 — no profile/avatar icon in header */
+.profile-avatar,.topbar .profile-avatar{display:none!important}
+.topbar .brand{margin-right:auto!important}
