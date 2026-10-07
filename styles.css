@@ -346,3 +346,11 @@ footer{padding-top:36px!important;padding-bottom:96px!important;color:#8a8d87!im
 /* v25 — no profile/avatar icon in header */
 .profile-avatar,.topbar .profile-avatar{display:none!important}
 .topbar .brand{margin-right:auto!important}
+
+/* v30 — library management */
+.manage-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.manage-actions button,.chapter-actions #editChapter,.chapter-actions #deleteChapter{border:1px solid #d8d9d5;background:#fff;border-radius:6px;padding:9px 12px;font-size:12px;font-weight:700;color:#4d514d;cursor:pointer}
+.manage-actions button:hover,.chapter-actions #editChapter:hover{background:#eef3ef;border-color:#b9c9bd}
+.manage-actions .danger,.chapter-actions .danger{color:#9a4f49;border-color:#e5cbc8;background:#fffafa}
+.manage-actions .danger:hover,.chapter-actions .danger:hover{background:#f8e9e7;border-color:#d9aaa5;color:#853f3a}
+@media(max-width:720px){.manage-actions{margin-top:14px}.manage-actions button{flex:1;min-width:130px}.chapter-actions{flex-wrap:wrap}.chapter-actions button{flex:1;min-width:125px}}
