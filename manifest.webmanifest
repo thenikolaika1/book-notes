@@ -10,10 +10,16 @@
   "lang": "ru",
   "icons": [
     {
-      "src": "./app-icon-v31.png?v=31",
+      "src": "./app-icon-v31.png?v=34",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
+    },
+    {
+      "src": "./app-icon-v31.png?v=34",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
   "display_override": [
