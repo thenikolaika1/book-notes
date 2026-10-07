@@ -334,3 +334,11 @@ footer{padding-top:36px!important;padding-bottom:96px!important;color:#8a8d87!im
  .personal-note textarea{font-size:17px!important;min-height:140px!important}
  .quote-card p,.apply-card p{font-size:16px!important}
 }
+
+/* v21 — coded illustrated profile avatar */
+.profile-avatar{position:relative!important;overflow:hidden!important;background:linear-gradient(145deg,#78aa88 0 51%,#7da8cc 51% 100%)!important;border:2px solid #fff!important;box-shadow:0 0 0 1px #cbd1cc,0 4px 11px #2632291c!important}
+.profile-avatar:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 72% 20%,#ffffff42 0 9%,transparent 10%);pointer-events:none}
+.profile-avatar .avatar-head{position:absolute!important;display:block!important;width:11px!important;height:11px!important;left:50%!important;top:7px!important;transform:translateX(-50%)!important;border-radius:50%!important;background:#fff!important;border:0!important;z-index:2!important}
+.profile-avatar .avatar-body{position:absolute!important;display:block!important;width:23px!important;height:15px!important;left:50%!important;bottom:3px!important;transform:translateX(-50%)!important;border-radius:12px 12px 7px 7px!important;background:#fff!important;border:0!important;z-index:2!important}
+.profile-avatar i{position:absolute;width:6px;height:6px;border-radius:50%;right:1px;bottom:1px;background:#df955b;border:1.5px solid #fff;z-index:3}
+.profile-avatar:hover{transform:translateY(-1px) scale(1.03);box-shadow:0 0 0 1px #bfc7c0,0 6px 14px #26322924!important}
