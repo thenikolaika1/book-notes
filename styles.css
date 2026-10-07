@@ -297,3 +297,40 @@ body{background:#f7f7f3!important;color:var(--ink)!important}
 .personal-note button{font-size:14px!important;font-weight:700!important}
 .book-foot{justify-content:flex-start!important}
 @media(max-width:720px){.profile-avatar{width:34px;height:34px;flex-basis:34px}.personal-note>div>span{font-size:14px!important}.personal-note textarea{font-size:16px!important}}
+
+/* v20 — final polish: cleaner rhythm, preserved visual identity */
+:root{--content-gap:18px}
+.topbar{min-height:68px!important;align-items:center!important}
+.hero{padding-bottom:44px!important}
+.dashboard{margin-top:4px!important}
+.section{margin-top:42px!important}
+.library-tools{gap:18px!important}
+.book-card{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease!important}
+.book-meta{min-width:0!important}.book-meta h3{margin-top:5px!important;margin-bottom:6px!important}.book-meta>span{font-size:13px!important;line-height:1.45!important}
+.book-foot{margin-top:14px!important;padding-top:10px!important;border-top:1px solid #ecece8!important}
+.book-hero{gap:30px!important;align-items:center!important}.book-title h1{margin-top:8px!important;margin-bottom:10px!important}.book-title .author{font-size:16px!important;line-height:1.45!important}
+.chapters-section{padding-top:36px!important}.chapter-row{min-height:88px!important;gap:16px!important}.chapter-row>div{min-width:0!important}.chapter-row p{line-height:1.45!important;margin-top:5px!important}
+.note{max-width:780px!important;margin-left:auto!important;margin-right:auto!important}.note-head{padding-bottom:28px!important}.note-head h1{max-width:680px!important}.chapter-actions{margin-top:20px!important}
+.note-block,.quote-card,.apply-card,.personal-note{margin-top:var(--content-gap)!important}
+.intro{padding:28px!important}.ideas{margin-top:10px!important}.idea{gap:16px!important}.idea p{font-size:16px!important}
+.quote-card p,.apply-card p{font-size:17px!important}
+.personal-note{padding:30px!important}
+.personal-note>div{display:flex!important;align-items:baseline!important;justify-content:space-between!important;gap:16px!important;margin-bottom:15px!important}
+.personal-note>div>span{font-size:19px!important;line-height:1.15!important;letter-spacing:.055em!important;font-weight:800!important}
+.personal-note>div>small{font-size:12px!important;color:#89838d!important;text-align:right!important}
+.personal-note textarea{font-size:17px!important;line-height:1.65!important;min-height:150px!important;padding:17px 18px!important;border:1px solid #d7d0dc!important;resize:vertical!important}
+.personal-note textarea:focus{outline:none!important;border-color:#9b83b2!important;box-shadow:0 0 0 3px #9b83b218!important}
+.personal-note button{min-height:44px!important;padding:0 18px!important;margin-top:11px!important}
+.chapter-nav{margin-top:24px!important;gap:12px!important}
+.chapter-nav a{min-height:76px!important}
+.bottom-nav{backdrop-filter:blur(14px)!important}
+footer{padding-top:36px!important;padding-bottom:96px!important;color:#8a8d87!important}
+@media(max-width:720px){
+ .topbar{min-height:60px!important}.section{margin-top:34px!important}.library-tools{gap:12px!important}
+ .book-hero{gap:19px!important}.chapter-row{min-height:82px!important;gap:12px!important}
+ .note{max-width:none!important}.note-head{padding-bottom:23px!important}
+ .personal-note{padding:23px 20px!important}.personal-note>div{display:block!important;margin-bottom:13px!important}
+ .personal-note>div>span{display:block!important;font-size:18px!important}.personal-note>div>small{display:block!important;text-align:left!important;margin-top:5px!important}
+ .personal-note textarea{font-size:17px!important;min-height:140px!important}
+ .quote-card p,.apply-card p{font-size:16px!important}
+}
