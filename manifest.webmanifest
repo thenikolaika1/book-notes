@@ -1,1 +1,23 @@
-{"name":"BookNotes","short_name":"BookNotes","description":"Личная библиотека конспектов книг","start_url":"./","scope":"./","display":"standalone","background_color":"#f7f7f3","theme_color":"#f7f7f3","lang":"ru","icons":[{"src":"apple-touch-icon.png","sizes":"180x180","type":"image/png","purpose":"any"},{"src":"booknotes-home-v28.png","sizes":"512x512","type":"image/png","purpose":"any"}]}
+{
+  "name": "BookNotes",
+  "short_name": "BookNotes",
+  "description": "Личная библиотека конспектов книг",
+  "start_url": "./?app=1",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f7f3",
+  "theme_color": "#f7f7f3",
+  "lang": "ru",
+  "icons": [
+    {
+      "src": "./app-icon-v31.png?v=31",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "display_override": [
+    "standalone",
+    "fullscreen"
+  ]
+}
