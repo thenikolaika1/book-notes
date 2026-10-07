@@ -10,13 +10,13 @@
   "lang": "ru",
   "icons": [
     {
-      "src": "./app-icon-v31.png?v=34",
+      "src": "./app-icon-v35.png?v=35",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "./app-icon-v31.png?v=34",
+      "src": "./app-icon-v35.png?v=35",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
