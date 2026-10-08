@@ -10,16 +10,10 @@
   "lang": "ru",
   "icons": [
     {
-      "src": "./app-icon-v35.png?v=35",
-      "sizes": "512x512",
+      "src": "./ChatGPT%20Image%208%20%D0%BE%D0%BA%D1%82.%202026%20%D0%B3.,%2009_20_05.png",
+      "sizes": "1024x1024",
       "type": "image/png",
       "purpose": "any"
-    },
-    {
-      "src": "./app-icon-v35.png?v=35",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
     }
   ],
   "display_override": [
