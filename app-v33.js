@@ -12,6 +12,13 @@ for(const incoming of (window.BOOKS||[])) {
     }
   }
 }
+// Add newly published chapters to existing on-device books, preserving local edits and notes.
+for(const incoming of (window.BOOKS||[])) {
+  const existing=state.library.find(book=>book.id===incoming.id);
+  if(existing) for(const chapter of (incoming.chapters||[])) {
+    if(!existing.chapters.some(c=>c.id===chapter.id)) existing.chapters.push(JSON.parse(JSON.stringify(chapter)));
+  }
+}
 // Hide the untouched starter example when the first real book is published.
 state.library=state.library.filter(book=>book.id!=="demo-book" || book.title!=="Первая книга" || book.author!=="Добавим твою книгу" || book.chapters.length!==1 || book.chapters[0].title!=="Первая глава");
 localStorage.setItem(KEY,JSON.stringify(state));
