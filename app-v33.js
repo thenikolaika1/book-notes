@@ -3,7 +3,14 @@ const KEY="booknotes-state-v2";let state=JSON.parse(localStorage.getItem(KEY)||'
 if(!state.library) state.library=JSON.parse(JSON.stringify(window.BOOKS||[]));
 // Import newly published books into existing on-device libraries without overwriting user edits.
 for(const incoming of (window.BOOKS||[])) {
-  if(!state.library.some(book=>book.id===incoming.id)) state.library.push(JSON.parse(JSON.stringify(incoming)));
+  const existing=state.library.find(book=>book.id===incoming.id);
+  if(!existing) state.library.push(JSON.parse(JSON.stringify(incoming)));
+  else {
+    if(!Array.isArray(existing.chapters)) existing.chapters=[];
+    for(const chapter of (incoming.chapters||[])) {
+      if(!existing.chapters.some(saved=>saved.id===chapter.id)) existing.chapters.push(JSON.parse(JSON.stringify(chapter)));
+    }
+  }
 }
 // Hide the untouched starter example when the first real book is published.
 state.library=state.library.filter(book=>book.id!=="demo-book" || book.title!=="Первая книга" || book.author!=="Добавим твою книгу" || book.chapters.length!==1 || book.chapters[0].title!=="Первая глава");
