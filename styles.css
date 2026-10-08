@@ -379,3 +379,58 @@ footer{padding-top:36px!important;padding-bottom:96px!important;color:#8a8d87!im
 .topbar .header-more{margin:0 0 0 auto!important;align-self:center;flex:0 0 auto;z-index:120}
 .topbar .header-more .more-btn{width:40px!important;height:40px!important;line-height:1!important;letter-spacing:0!important}
 .topbar .header-more .more-menu{left:auto!important;right:0!important;top:46px!important}
+
+
+/* v47 — automatic system dark mode; light editorial theme stays untouched */
+@media (prefers-color-scheme: dark) {
+ :root{color-scheme:dark;--bg:#151a1b;--paper:#202729;--ink:#f1f0eb;--muted:#b3b9b5;--line:#3a4545;--green:#91c6a1;--green-dark:#b1ddbb;--shadow:0 6px 22px #0003;--shadow-up:0 12px 30px #0005}
+ html,body{background:#151a1b!important;color:#f1f0eb!important}
+ .paper-grain{opacity:.035!important}
+ .topbar,.shell>.topbar,.reading-shell>.topbar{background:rgba(21,26,27,.96)!important;border-color:#3b4544!important}
+ .brand,.hero h1,.book-title h1,.note h1,.saved-head h1,.section-head h2,.book-meta h3,.chapter-row h3,.idea p,.note-block p,.quote-card p,.apply-card p,.personal-note span,.stat b{color:#f1f0eb!important}
+ .hero .lead,.lead,.book-meta>span,.author,.chapter-row p,.read-time,.stat span,.personal-note small,.book-foot,.empty,.eyebrow,.count{color:#b3bdb8!important}
+ .hero h1 em{color:#a6cdb7!important}
+ .eyebrow,.book-title .eyebrow,.note-head .eyebrow{color:#a6d3b6!important}
+ .brand-mark,.icon-btn,.more-btn,.search,.search input,.search button,.chapter-actions button,.chapter-nav a,.status,.read-time,.count{background:#273133!important;color:#e6eee8!important;border-color:#455352!important}
+ .dashboard .stat,.dashboard .stat:nth-child(1),.dashboard .stat:nth-child(2),.dashboard .stat:nth-child(3),.stat,.book-card,.book-hero,.chapter-list,.continue-card,.note-block,.chapter-nav a,.saved-list,.more-menu,.empty{background:#20282a!important;color:#f1f0eb!important;border-color:#3d4b4b!important;box-shadow:0 6px 20px #0002!important}
+ .continue-card .eyebrow,.continue-card h2,.continue-card p,.continue-card b,.continue-card span{color:#f0f2eb!important}
+ .continue-card>b{background:#344341!important;border-color:#52635b!important}
+ .book-card:hover,.chapter-row:hover,.idea:hover,.more-menu button:hover{background:#2a3636!important}
+ .book-foot,.chapter-row,.topbar,.saved-head,.chapter-nav,.section-head,.personal-note>div{border-color:#3e4948!important}
+ .chapter-row .status,.status{background:#303e3d!important;color:#b6d8c0!important}
+ .chapter-row:nth-child(5n+1) .chapter-number{color:#9ed4ae!important}
+ .chapter-row:nth-child(5n+2) .chapter-number{color:#a5c7e8!important}
+ .chapter-row:nth-child(5n+3) .chapter-number{color:#e4b28f!important}
+ .chapter-row:nth-child(5n+4) .chapter-number{color:#c7a8df!important}
+ .chapter-row:nth-child(5n) .chapter-number{color:#e2c986!important}
+ .search input,.personal-note textarea,input,textarea{background:#182122!important;color:#f1f0eb!important;border-color:#495654!important}
+ input::placeholder,textarea::placeholder{color:#9baaa6!important}
+ .intro{background:#202f3a!important;border-color:#6796ba!important;color:#e9f1f8!important}
+ .intro p,.intro strong{color:#e9f1f8!important}
+ .intro .ornament{background:#304b60!important;color:#c2e1f9!important}
+ .idea{background:transparent!important;color:#f1f0eb!important}
+ .idea:nth-child(5n+1) b{background:#304b3b!important;color:#b4e1c2!important}
+ .idea:nth-child(5n+2) b{background:#30485b!important;color:#b9dafa!important}
+ .idea:nth-child(5n+3) b{background:#543e32!important;color:#f4c9a9!important}
+ .idea:nth-child(5n+4) b{background:#45364f!important;color:#e0c6ef!important}
+ .idea:nth-child(5n) b{background:#504932!important;color:#f1d99a!important}
+ .quote-card{background:#393223!important;border-color:#6b5a34!important;color:#f7e8bd!important}
+ .quote-card p,.quote-card span{color:#f7e8bd!important}
+ .apply-card{background:#22382f!important;border-color:#426b54!important;color:#e2f2e6!important}
+ .apply-card p,.apply-card span{color:#e2f2e6!important}
+ .apply-icon{background:#345440!important;color:#c6f0cf!important}
+ .personal-note{background:#30283a!important;border-color:#5e4b6c!important;color:#f0e7f8!important}
+ .personal-note>div>span{color:#e8d6f4!important}
+ .personal-note button{background:#81679a!important;color:#fff!important}
+ .more-menu button{color:#e5ece8!important;background:transparent!important}
+ .more-menu button.danger{color:#f3a8a2!important}
+ .more-menu button.danger:hover{background:#4c3031!important}
+ .bottom-nav{background:rgba(29,37,38,.96)!important;border-color:#43504f!important;box-shadow:0 4px 22px #0005!important}
+ .bottom-nav a{color:#b6c3bd!important}
+ .bottom-nav a.active{background:#34463d!important;color:#c6f2d0!important}
+ .book-line span,.book-line i{background:#34403e!important;border-color:#6d8179!important}
+ .cover,.mini-cover{color:inherit}
+ .cover-rule,.cover-lines{opacity:.7}
+ .toast{background:#e2ede5!important;color:#1a2821!important}
+ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid #9cc9b0!important;outline-offset:3px}
+}
