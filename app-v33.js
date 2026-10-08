@@ -1,6 +1,13 @@
 const app=document.querySelector("#app"),nav=document.querySelector("#bottomNav"),toastEl=document.querySelector("#toast");
 const KEY="booknotes-state-v2";let state=JSON.parse(localStorage.getItem(KEY)||'{"favorites":[],"completed":[],"notes":{}}');
 if(!state.library) state.library=JSON.parse(JSON.stringify(window.BOOKS||[]));
+// Import newly published books into existing on-device libraries without overwriting user edits.
+for(const incoming of (window.BOOKS||[])) {
+  if(!state.library.some(book=>book.id===incoming.id)) state.library.push(JSON.parse(JSON.stringify(incoming)));
+}
+// Hide the untouched starter example when the first real book is published.
+state.library=state.library.filter(book=>book.id!=="demo-book" || book.title!=="Первая книга" || book.author!=="Добавим твою книгу" || book.chapters.length!==1 || book.chapters[0].title!=="Первая глава");
+localStorage.setItem(KEY,JSON.stringify(state));
 let books=state.library;
 const save=()=>{state.library=books;localStorage.setItem(KEY,JSON.stringify(state))};const esc=(v="")=>String(v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[c]));
 const key=(b,c)=>b+"/"+c;function toast(t){toastEl.textContent=t;toastEl.classList.add("show");setTimeout(()=>toastEl.classList.remove("show"),1800)}
