@@ -2,7 +2,7 @@
   "name": "BookNotes",
   "short_name": "BookNotes",
   "description": "Личная библиотека конспектов книг",
-  "start_url": "./?app=40",
+  "start_url": "./?app=41",
   "scope": "./",
   "display": "standalone",
   "background_color": "#f7f7f3",
@@ -10,7 +10,7 @@
   "lang": "ru",
   "icons": [
     {
-      "src": "./%D0%98%D0%BA%D0%BE%D0%BD%D0%BA%D0%B0%202%20.png?icon=40",
+      "src": "./%D0%98%D0%BA%D0%BE%D0%BD%D0%B0%20%D0%B1%D0%B5%D1%81%D1%82%20.png?icon=41",
       "sizes": "1024x1024",
       "type": "image/png",
       "purpose": "any"
