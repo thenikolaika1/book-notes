@@ -459,3 +459,24 @@ html,body{scroll-behavior:auto!important;overscroll-behavior-y:auto}
 .book-card .book-meta,.book-hero .book-title{flex:1 1 0;min-width:0;overflow-wrap:anywhere}
 @media(max-width:720px){.book-card{display:flex!important;align-items:center!important;gap:15px!important;padding:16px!important;overflow:hidden!important}.book-hero{display:flex!important;align-items:center!important;gap:16px!important;overflow:hidden!important}.book-card .cover{width:90px!important;height:130px!important}.book-hero .mini-cover{width:82px!important;height:119px!important}.book-hero h1{font-size:clamp(24px,7vw,35px)!important}}
 @media(prefers-color-scheme:dark){html,body{background:#151a1b!important;color:#f1f0eb!important}.book-hero,.book-card{background:#20282a!important;color:#f1f0eb!important;border-color:#3d4b4b!important}.book-meta h3,.book-title h1{color:#f1f0eb!important}}
+
+/* v50: quiet premium interactions and consistent continuation-style surfaces */
+#app{opacity:1}
+#app.soft-enter{animation:softEnter .22s ease-out both!important;transform:none!important;filter:none!important}
+@keyframes softEnter{from{opacity:.70}to{opacity:1}}
+.book-card,.book-hero,.chapter-list,.chapter-nav a,.dashboard .stat,.personal-note,.note-block,.more-menu{background:var(--paper)!important}
+.book-card,.book-hero{background:linear-gradient(110deg,#ffffff 0%,#f0f5f0 100%)!important;border:1px solid #d4ded5!important;box-shadow:0 3px 14px #28392d0c!important}
+.book-card,.chapter-row,.chapter-nav a,.bottom-nav a,.more-btn,.icon-btn,.chapter-actions button,.personal-note button{transition:background-color .18s ease,border-color .18s ease,box-shadow .18s ease,opacity .18s ease!important;-webkit-tap-highlight-color:transparent!important}
+.book-card:hover,.book-card:focus-visible{background:linear-gradient(110deg,#fff 0%,#e7f1e9 100%)!important;border-color:#a8c6b0!important}
+.chapter-row:hover,.chapter-row:focus-visible{background:#f1f6f1!important}
+.book-card:active,.chapter-row:active,.chapter-nav a:active,.bottom-nav a:active,.more-btn:active,.icon-btn:active{opacity:.84!important;transform:none!important}
+.book-card .cover img,.book-hero .mini-cover img{display:block!important;opacity:1!important;visibility:visible!important}
+@media(prefers-color-scheme:dark){
+ .book-card,.book-hero{background:linear-gradient(110deg,#20292a 0%,#283a32 100%)!important;border-color:#40564a!important;box-shadow:0 3px 16px #0003!important}
+ .book-card:hover,.book-card:focus-visible{background:linear-gradient(110deg,#263232 0%,#314638 100%)!important;border-color:#638c72!important}
+ .chapter-row:hover,.chapter-row:focus-visible{background:#2b3934!important}
+ .chapter-list,.chapter-nav a,.dashboard .stat,.personal-note,.note-block,.more-menu{background:#20282a!important;color:#f1f0eb!important}
+ .intro{background:#202f3a!important}
+ .personal-note{background:#30283a!important}
+}
+@media(prefers-reduced-motion:reduce){#app.soft-enter{animation:none!important} .book-card,.chapter-row,.chapter-nav a,.bottom-nav a,.more-btn,.icon-btn{transition:none!important}}
