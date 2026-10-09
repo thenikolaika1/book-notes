@@ -509,3 +509,12 @@ html,body{scroll-behavior:auto!important;overscroll-behavior-y:auto}
  .book-card .cover img,.book-hero .mini-cover img{background:transparent!important}
  button:active,a:active{-webkit-tap-highlight-color:transparent}
 }
+
+/* v52 — remove the stray light top rule above book cards in dark mode */
+@media(prefers-color-scheme:dark){
+ .book-card,.book-card:link,.book-card:visited,.book-card:hover,.book-card:focus,.book-card:active{
+   border-top-color:#466054!important;
+ }
+ .books-grid{border-top:0!important}
+ .book-card::before,.books-grid::before{border-top-color:transparent!important}
+}
