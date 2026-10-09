@@ -518,3 +518,14 @@ html,body{scroll-behavior:auto!important;overscroll-behavior-y:auto}
  .books-grid{border-top:0!important}
  .book-card::before,.books-grid::before{border-top-color:transparent!important}
 }
+
+/* v53: eliminate the actual top edge rather than merely recoloring it */
+@media(prefers-color-scheme:dark){
+ #bookGrid>.book-card,#bookGrid>.book-card:link,#bookGrid>.book-card:visited,
+ #bookGrid>.book-card:hover,#bookGrid>.book-card:focus,#bookGrid>.book-card:active{
+  border-top:0!important;outline:0!important;
+  box-shadow:0 4px 16px #0003!important;
+ }
+ #bookGrid>.book-card::before{content:none!important;display:none!important}
+ #bookGrid{border:0!important;outline:0!important;box-shadow:none!important}
+}
