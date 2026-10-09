@@ -480,3 +480,32 @@ html,body{scroll-behavior:auto!important;overscroll-behavior-y:auto}
  .personal-note{background:#30283a!important}
 }
 @media(prefers-reduced-motion:reduce){#app.soft-enter{animation:none!important} .book-card,.chapter-row,.chapter-nav a,.bottom-nav a,.more-btn,.icon-btn{transition:none!important}}
+
+/* v51 — cohesive low-glare dark palette, including untouched and pressed states */
+@media(prefers-color-scheme:dark){
+ :root{--bg:#151a1b;--paper:#20282a;--ink:#e7ece8;--muted:#aebbb5;--line:#3c4b49;color-scheme:dark}
+ html,body,#app{background:#151a1b!important;color:#e7ece8!important}
+ .shell,.reading-shell,.section,.chapters-section{background:transparent!important}
+ .book-card,.book-card:link,.book-card:visited,.book-card:hover,.book-card:focus,.book-card:focus-visible,.book-card:active,
+ .book-hero{background:linear-gradient(110deg,#202b2b,#293b33)!important;border-color:#466054!important;color:#e7ece8!important;box-shadow:0 3px 14px #0003!important}
+ .book-card:hover,.book-card:focus-visible,.book-card:active{background:linear-gradient(110deg,#263331,#30483b)!important}
+ .continue-card,.continue-card:link,.continue-card:visited{background:linear-gradient(110deg,#202b2b,#293b33)!important;border-color:#466054!important;color:#e7ece8!important}
+ .continue-card:hover,.continue-card:active{background:linear-gradient(110deg,#263331,#30483b)!important}
+ .dashboard .stat,.dashboard .stat:nth-child(1),.dashboard .stat:nth-child(2),.dashboard .stat:nth-child(3),
+ .chapter-list,.chapter-row,.chapter-nav a,.chapter-nav a:link,.chapter-nav a:visited,
+ .note-block,.more-menu,.search,.search input,.icon-btn,.brand-mark,.more-btn,.count,.status,.empty{background:#20282a!important;border-color:#3c4b49!important;color:#e7ece8!important}
+ .chapter-row:hover,.chapter-row:focus-visible,.chapter-row:active,.chapter-nav a:hover,.chapter-nav a:active{background:#2b3934!important}
+ .book-card .book-meta h3,.book-title h1,.continue-card h2,.chapter-row h3,.section-head h2,.note-head h1,.saved-head h1{color:#e7ece8!important}
+ .book-meta>span,.book-foot,.chapter-row p,.author,.lead,.stat span{color:#acb9b3!important}
+ .book-foot{border-top-color:#41534b!important}
+ .bottom-nav,.bottom-nav a{background:#20282a!important;color:#acb9b3!important;border-color:#3c4b49!important}
+ .bottom-nav a.active{background:#30473b!important;color:#c4e5cb!important}
+ .personal-note{background:#30283a!important;color:#e7ddeb!important;border-color:#5e4b6c!important}
+ .personal-note textarea{background:#211d29!important;color:#e7ddeb!important;border-color:#5e4b6c!important}
+ .intro{background:#202f3a!important;color:#dce9f3!important;border-color:#456478!important}
+ .quote-card{background:#393223!important;color:#f0dfb6!important;border-color:#6b5a34!important}
+ .apply-card{background:#22382f!important;color:#d8ebde!important;border-color:#426b54!important}
+ .book-card .cover,.book-hero .mini-cover{background:#2c3933!important}
+ .book-card .cover img,.book-hero .mini-cover img{background:transparent!important}
+ button:active,a:active{-webkit-tap-highlight-color:transparent}
+}
