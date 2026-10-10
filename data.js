@@ -1,5 +1,14 @@
 window.BOOKS = [
   {
+    id: "personal-mba-josh-kaufman",
+    title: "Сам себе MBA. Самообразование на 100%",
+    author: "Джош Кауфман",
+    category: "Бизнес и самообразование",
+    accent: "#dbe8e4",
+    symbol: "MBA",
+    chapters: []
+  },
+  {
     id: "ask-mom-rob-fitzpatrick",
     title: "Спроси маму",
     author: "Роб Фитцпатрик",
